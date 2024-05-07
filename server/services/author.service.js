@@ -17,4 +17,13 @@ const getAuthors = async () => {
     }
 }
 
-module.exports = { getAuthors }
+const createAuthor = async () => {
+    try {
+        
+    } catch (error) {
+        console.log(error);
+        throw Error(error)
+    }
+}
+
+module.exports = { getAuthors , createAuthor}
