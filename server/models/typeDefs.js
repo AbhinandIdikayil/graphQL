@@ -32,6 +32,16 @@ input AuthorInput {
     photo: String
 }
 
+input BookInput {
+    book_id: String
+    book_name: String
+    released_year: Int
+    genre: String
+    number_of_pages: Int
+    author_id: String
+    isbn_number: String
+}
+
 type Query{
     hello: String
     getAuthors: [Author]!
@@ -40,6 +50,7 @@ type Query{
 type Mutation{
     hello: String
     createAuthor(input:AuthorInput): Author!
+    createBooks(input: BookInput): Book!
 }
 `;
 
