@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes, db) => {
-    const books = sequelize.define("books", {
+    const Book = sequelize.define("Book", {
       book_id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -29,11 +29,13 @@ module.exports = (sequelize, DataTypes, db) => {
         type: DataTypes.UUID,
         allowNull: false,
       },
+    },{
+      tableName: 'books'
     });
   
-    books.associate = (models) => {
-      books.belongsTo(models.Author, { as: "author", foreignKey: "author_id" });
+    Book.associate = (models) => {
+      Book.belongsTo(models.Author, { as: "author", foreignKey: "author_id" });
     };
-  
-    return books;
+   
+    return Book;
   };

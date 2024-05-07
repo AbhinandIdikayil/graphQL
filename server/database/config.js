@@ -2,7 +2,7 @@
     HOST: "localhost",
     USER: "postgres",
     PASSWORD: "735615",
-    DB: "testdb",
+    DB: "author",
     dialect: "postgres",
     pool: {
       max: 5,

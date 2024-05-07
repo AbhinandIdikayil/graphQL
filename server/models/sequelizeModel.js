@@ -15,7 +15,18 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 
 const db = {};
 
-db.sequelize = Sequelize
 db.sequelize = sequelize
+db.Sequelize = Sequelize
 
-module.exports = db
+db.Author = require('./author.model')(sequelize, Sequelize, db);
+db.Book = require('./book.model')(sequelize, Sequelize, db)
+
+
+Object.values(db).forEach((model) => {
+    if (model.associate) {
+      model.associate(db);
+    }
+  });
+  
+
+module.exports = db 

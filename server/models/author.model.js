@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes, db) => {
-    const authors = sequelize.define("authors", {
+    const Author = sequelize.define("Author", {
         author_id: {
           type: DataTypes.UUID,
           defaultValue: DataTypes.UUIDV4,
@@ -29,9 +29,11 @@ module.exports = (sequelize, DataTypes, db) => {
           type: DataTypes.STRING,
           allowNull: true,
         },
+      } , {
+        tableName: 'authors'
       });
-      authors.associate = (models) => {
-        authors.hasMany(models.book, {as:"books", foreignKey:"author_id"})
+      Author.associate = (models) => {
+        Author.hasMany(models.Book, {as:"books", foreignKey:"author_id"})
       }
-      return authors
+      return Author
 }
