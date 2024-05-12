@@ -19,4 +19,14 @@ const GET_AUTHORS = gql`
     }
 `
 
-export {  GET_AUTHORS }
+const CREATE_AUTHORS = gql`
+    mutation CreateAuthor($input : AuthorInput) {
+      createAuthor(input : $input) {
+        author_id
+        author_name
+        author_age
+      }
+    }
+`
+
+export { GET_AUTHORS , CREATE_AUTHORS }
